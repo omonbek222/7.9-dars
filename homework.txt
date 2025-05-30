@@ -1,0 +1,146 @@
+TypeScript'da namespace — bu kodni mantiqan guruhlash va nomlar to‘qnashuvining 
+(naming collision) oldini olish uchun ishlatiladigan konstruktsiyadir. 
+Bu ayniqsa katta loyihalarda kodni tashkil qilishda foydalidir.
+
+namespace MathUtils {
+    export function add(a: number, b: number): number {
+        return a + b;
+    }
+
+    export function multiply(a: number, b: number): number {
+        return a * b;
+    }
+}
+
+Nega namespace ishlatiladi?
+Katta dasturlarda bir xil nomdagi funksiyalar bo‘lishi mumkin. Namespace bu nomlar to‘qnashuvini oldini oladi.
+
+Kodni mantiqan ajratadi va boshqarishni osonlashtiradi.
+
+
+TypeScript'da Generics — bu qayta foydalanish mumkin bo‘lgan,
+ lekin turli tiplar bilan ishlay oladigan kod yozish usulidir. 
+ Ya'ni, generics yordamida biror funksiyani,
+klassni yoki interfeysni har xil turdagi 
+ma’lumotlar bilan ishlaydigan qilib yozish mumkin.
+
+function identity<T>(value: T): T {
+    return value;
+}
+
+Bu yerda:
+
+T — bu generic type (o‘zgaruvchan tur).
+
+value: T degani — funksiyaga keladigan qiymat turi qanday bo‘lsa, natija ham o‘sha turda bo‘ladi.
+
+Misol:
+
+identity<number>(5);         // T = number
+identity<string>("salom");   // T = string
+
+
+TypeScript’dagi Utility Types — bu oldindan yozilgan yordamchi turlar bo‘lib, 
+ular mavjud turlarni o‘zgartirish,
+transformatsiya qilish yoki ulardan yangi turlar yaratishda yordam beradi. 
+Bu yordamchi turlar kod yozishni soddalashtiradi va ko‘p holatlarda takroriy kod yozishdan saqlaydi.
+
+
+1. Partial<T>
+T ning barcha propertylarini majburiy emas (optional) qiladi.
+
+interface User {
+  id: number;
+  name: string;
+  age: number;
+}
+
+const partialUser: Partial<User> = {
+  name: "Ali",
+};
+// id va age bo‘lmasligi mumkin
+
+2. Required<T>
+T ning barcha propertylarini majburiy (required) qiladi (optional bo‘lsa ham majburiyga o‘zgartiradi).
+
+interface User {
+  id?: number;
+  name?: string;
+}
+
+const user: Required<User> = {
+  id: 1,
+  name: "Ali",
+};
+// hamma propertylar majburiy
+
+3. Readonly<T>
+T ning barcha propertylarini faqat o‘qish uchun (read-only) qiladi.
+
+interface User {
+  id: number;
+  name: string;
+}
+
+const readonlyUser: Readonly<User> = {
+  id: 1,
+  name: "Ali",
+};
+
+readonlyUser.name = "Bob"; // Error: Cannot assign to 'name' because it is a read-only property.
+
+4. Record<K, T>
+K — kalitlar turi (odam odatda string yoki union string ishlatadi), T — qiymatlar turi.
+
+Yangi object tipini yaratadi, bunda kalitlari K ga, qiymatlari T turiga ega bo‘ladi.
+
+type Roles = "admin" | "user" | "guest";
+
+const rolePermissions: Record<Roles, string[]> = {
+  admin: ["read", "write", "delete"],
+  user: ["read", "write"],
+  guest: ["read"],
+};
+
+5. Pick<T, K>
+T tipidan faqat K kalitlaridan iborat yangi tip yaratadi.
+
+interface User {
+  id: number;
+  name: string;
+  age: number;
+}
+
+type UserNameAndAge = Pick<User, "name" | "age">;
+
+const user: UserNameAndAge = {
+  name: "Ali",
+  age: 30,
+};
+
+6. Omit<T, K>
+T tipidan K kalitlarini olib tashlab yangi tip yaratadi.
+
+interface User {
+  id: number;
+  name: string;
+  age: number;
+}
+
+type UserWithoutAge = Omit<User, "age">;
+
+const user: UserWithoutAge = {
+  id: 1,
+  name: "Ali",
+};
+
+7. Exclude<T, U>
+T tipidagi barcha qiymatlardan U tipidagi qiymatlarni chiqarib tashlaydi.
+
+type T = string | number | boolean;
+type U = Exclude<T, boolean>;  // string | number
+
+8. Extract<T, U>
+T tipidagi qiymatlar ichidan U tipidagi qiymatlarni ajratib oladi.
+type T = string | number | boolean;
+type U = Extract<T, boolean | number>;  // number | boolean
