@@ -11,7 +11,7 @@ const items = [
   { key: "5", label: <a href="#">Отзывы</a> },
 ];
 
-const Header = () => {
+const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -72,4 +72,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;

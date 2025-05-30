@@ -10,7 +10,8 @@ import {
   FaConciergeBell,
 } from "react-icons/fa";
 
-const services = [
+const Work = () => {
+  const services = [
   {
     icon: <FaWifi className="text-3xl text-blue-800" />,
     title: "Бесплатный Wi-Fi",
@@ -52,8 +53,6 @@ const services = [
     desc: "Завтраки и обеды на любой вкус.",
   },
 ];
-
-export default function Services() {
   return (
     <section className="bg-white my-[30px]">
       <div className="max-w-7xl mx-auto">
@@ -74,5 +73,7 @@ export default function Services() {
         </div>
       </div>
     </section>
-  );
+  )
 }
+
+export default Work

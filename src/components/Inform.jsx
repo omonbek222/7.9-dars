@@ -2,7 +2,7 @@ import React from "react";
 import heroImg from "../assets/header.png";
 import logo2 from "../assets/logo2.png";
 
-const Hero = () => {
+const Inform = () => {
   return (
     <div className="bg-white">
       <section className="max-w-7xl mx-auto py-12 sm:py-20 flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-20">
@@ -37,4 +37,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Inform;

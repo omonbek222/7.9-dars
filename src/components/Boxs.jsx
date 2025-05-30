@@ -4,7 +4,7 @@ import map from "../assets/map.png";
 import tel1 from "../assets/tel1.png";
 import tel2 from "../assets/tel2.png";
 
-const Cards = () => {
+const Boxs = () => {
   return (
     <div className="max-w-7xl mx-auto my-12 px-4">
       <h1 className="text-[#2F70D9] font-bold text-[36px] md:text-[50px] leading-[100%] tracking-[3%] mb-12 text-center md:text-left">
@@ -52,4 +52,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default Boxs;

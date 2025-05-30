@@ -3,6 +3,8 @@ import { FaCheck } from "react-icons/fa";
 import person from "../assets/person.png";
 import person2 from "../assets/person2.png";
 
+const Flat = () => {
+  
 const rooms = [
   {
     type: "Стандартный номер",
@@ -25,8 +27,6 @@ const rooms = [
     price: "2000₽ / ночь",
   },
 ];
-
-export default function Rooms() {
   return (
     <section className="bg-white my-[30px]">
       <div className="max-w-7xl mx-auto">
@@ -63,5 +63,7 @@ export default function Rooms() {
       </div>
       </div>
     </section>
-  );
+  )
 }
+
+export default Flat

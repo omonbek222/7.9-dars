@@ -1,7 +1,8 @@
 import React from "react";
 import aboutImg from '../assets/about.png'; 
+import { AlibabaOutlined } from "@ant-design/icons";
 
-const About = () => {
+const Abb = () => {
   return (
     <div className="bg-[#F6F6F6]">
       <section className="max-w-7xl mx-auto py-12 sm:py-16 flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-16">
@@ -32,4 +33,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Abb;

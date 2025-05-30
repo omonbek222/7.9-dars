@@ -1,21 +1,21 @@
 import React from 'react'
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services'; 
-import Rooms from './components/Rooms.jsx';
-import Cards from './components/Cards';
+import Navbar from './components/Navbar.jsx';
+import Inform from './components/Inform.jsx';
+import Abb from './components/Abb.jsx';
+import Work from './components/Work.jsx'; 
+import Flat from './components/Flat.jsx';
+import Boxs from './components/Boxs.jsx';
 import Footer from './components/Footer';
 
 const App = () => {
   return (
     <div>
-      <Header />
-      <Hero />
-      <About />
-      <Services /> 
-      <Rooms/>
-      <Cards/>
+      <Navbar />
+      <Inform />
+      <Abb />
+      <Work /> 
+      <Flat/>
+      <Boxs/>
       <Footer/>
     </div>
   )
